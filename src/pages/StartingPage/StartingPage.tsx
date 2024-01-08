@@ -1,6 +1,6 @@
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/molecules";
 import bgStarting from "/images/bg-starting.png";
-import { ArrowRight } from "lucide-react";
 
 export default function StartingPage() {
   return (
