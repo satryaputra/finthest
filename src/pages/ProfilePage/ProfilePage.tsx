@@ -1,6 +1,6 @@
-import React from "react";
+
 import { useNavigate } from "react-router-dom";
-import { IconPhoneCall, IconBuildingSkyscraper, IconUser, IconUserBolt, IconCircleArrowLeftFilled, IconEdit } from "@tabler/icons-react";
+import { IconPhoneCall, IconBuildingSkyscraper, IconUser, IconUserBolt, IconEdit } from "@tabler/icons-react";
 import imgPP from "../../assets/pp.jpg";
 // import imgPP from '../../assets/homePage.png'
 import imgBG from "../../assets/background.png";

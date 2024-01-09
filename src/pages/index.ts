@@ -2,7 +2,6 @@ export { default as StartingPage } from "./StartingPage";
 export { default as ShowFeaturesPage } from "./ShowFeaturesPage";
 export { default as DashboardPage } from "./DashboardPage";
 export { default as ArticlePage } from "./ArticlePage";
-export { default as InformationPage } from "./InformationPage";
 export { default as RegisterPage } from "./RegisterPage";
 export { default as LoginPage } from "./LoginPage";
 export { default as ForgotPasswordRequestPage } from "./ForgotPasswordRequestPage";

@@ -6,7 +6,6 @@ import {
   DashboardPage,
   ForgotPasswordPage,
   ForgotPasswordRequestPage,
-  InformationPage,
   LoginPage,
   PemasukanPage,
   ProfilePage,
@@ -26,7 +25,6 @@ export default function App() {
         <Route path="/start" element={<StartingPage />} />
         <Route path="/what-features" element={<ShowFeaturesPage />} />
         <Route path="/articles" element={<ArticlePage />} />
-        <Route path="/information" element={<InformationPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/forgot-password-request" element={<ForgotPasswordRequestPage />} />

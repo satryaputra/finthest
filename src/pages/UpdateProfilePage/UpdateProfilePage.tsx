@@ -1,22 +1,22 @@
-import React, { useState } from 'react'
+import React  from 'react'
 import { Link, } from 'react-router-dom';
 import img1 from '../../assets/homePage.png'
 import { FormProvider, useForm } from "react-hook-form";
 import { Input } from "../../components/molecules";
 import { Camera } from 'lucide-react';
 import { IconCircleArrowLeftFilled } from '@tabler/icons-react';
-interface def {
-  company: string,
-  email: string,
-  name: string,
-  ename: string,
-  contact: number,
-}
+// interface def {
+//   company: string,
+//   email: string,
+//   name: string,
+//   ename: string,
+//   contact: number,
+// }
 
 export default function UpdateProfilePage() {
   const metodth = useForm();
 
-  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [imagePreview, setImagePreview] = React.useState<string | null>(null);
 
 
   // const handleSubmit = async (event: React.FormEvent) => {
@@ -49,7 +49,7 @@ export default function UpdateProfilePage() {
 
   return (
     <>
-      <div className="flex flex-col" style={{ width: "100%" }}>
+      <div className="flex flex-col" >
         <div className="flex items-center justify-between top-0 px-4 relative z-10">
           <div className="flex items-center">
             <Link to="/profile" >

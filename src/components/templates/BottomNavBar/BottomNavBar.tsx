@@ -1,5 +1,4 @@
 import { BarChartBig, Home, UserRound } from "lucide-react";
-import React from "react";
 import { useNavigate, Outlet } from "react-router";
 import { BottomNavigation } from "reactjs-bottom-navigation";  
 

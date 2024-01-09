@@ -1,12 +1,11 @@
-import React,{useState}from "react";
-import { Checkbox } from "../../components/ui/checkbox";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import img1 from '../../assets/imgAuth.png'
 
 export default function TermsConditionsPage() {
   const navigate = useNavigate();
 
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = React.useState(false);
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);

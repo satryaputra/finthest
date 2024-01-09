@@ -1,4 +1,3 @@
-import React from "react";
 import img1 from '../../assets/imgAuth.png'
 import { FormProvider, useForm } from "react-hook-form";
 import { Input } from "../../components/molecules";

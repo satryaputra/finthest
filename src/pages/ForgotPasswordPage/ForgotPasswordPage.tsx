@@ -1,7 +1,6 @@
 import img1 from '../../assets/imgAuth.png'
 import { FormProvider, useForm } from "react-hook-form";
 import { Button, Input } from "../../components/molecules";
-import { Link } from "react-router-dom";
 
 export default function ForgotPasswordPage() {
   const metodth = useForm();
