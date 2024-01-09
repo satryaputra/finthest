@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/molecules";
 import bgStarting from "/images/bg-starting.png";
 
 export default function StartingPage() {
+  const navigate = useNavigate();
   return (
     <div>
       <img src={bgStarting} alt="background starting page" className="w-full" />
@@ -14,7 +16,10 @@ export default function StartingPage() {
         <p className="text-secondary text-xl w-4/5">
           Sebelum mulai, baca artikel dari kami dulu yuk!
         </p>
-        <Button className="group mt-4">
+        <Button
+          className="group mt-4"
+          onClick={() => navigate("/what-features")}
+        >
           Lanjut
           <ArrowRight
             size={30}
