@@ -5,3 +5,10 @@
 html {
   @apply scrollbar-hide;
 }
+
+
+.bottom-nav {
+  max-width: 480px;
+  right: 50%;
+  transform: translateX(50%);
+}

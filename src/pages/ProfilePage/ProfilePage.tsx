@@ -1,10 +1,10 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
-import { IconPhoneCall, IconBuildingSkyscraper, IconUser, IconUserBolt, IconCircleArrowLeftFilled, IconEdit } from '@tabler/icons-react';
-import imgPP from '../../assets/pp.jpg';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { IconPhoneCall, IconBuildingSkyscraper, IconUser, IconUserBolt, IconCircleArrowLeftFilled, IconEdit } from "@tabler/icons-react";
+import imgPP from "../../assets/pp.jpg";
 // import imgPP from '../../assets/homePage.png'
-import imgBG from '../../assets/background.png';
-import { Button } from '../../components/molecules';
+import imgBG from "../../assets/background.png";
+import { Button } from "../../components/molecules";
 
 export default function ProfilePage() {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ export default function ProfilePage() {
   // };
 
   const handleEditProfile = () => {
-    navigate('/update-profile');
+    navigate("/update-profile");
   };
 
   const Nama = "Eka Budiono Putra Siregar";
@@ -26,21 +26,20 @@ export default function ProfilePage() {
 
   return (
     <>
-      <div className="flex flex-col" style={{ width: "100%" }}>
-
-        <div className="top-0 px-4 absolute flex items-center justify-between relative z-10">
+      <div className="">
+        <div className="top-0 px-4 absolute flex items-center">
           {/* <Button onClick={handleGoBack}>
             <IconCircleArrowLeftFilled className="text-black text-xl" />
           </Button> */}
           <div className="flex-grow text-center">
-            <h1 className="text-center text-2xl text-white text-2xl font-semibold pt-10 mb-10">Profile</h1>
+            <h1 className="text-center text-2xl text-white  font-semibold pt-10 mb-10">Profile</h1>
           </div>
           <Button onClick={handleEditProfile}>
             <IconEdit className="text-white text-xl" />
           </Button>
         </div>
 
-        <img src={imgBG} alt="" className="absolute top-0 w-full -z-10" />
+        <img src={imgBG} alt="" className="" />
 
         <div className="top-10 ml-6 flex items-center justify-center relative z-50">
           <div className="order-1">
@@ -54,7 +53,6 @@ export default function ProfilePage() {
 
         <div className="mt-32 flex items-center justify-center">
           <div className="bg-white-100 p-8 w-full">
-
             <div className="flex items-center mb-6">
               <div className="bg-white rounded-full p-3 border border-gray-300 shadow-md mr-4">
                 <IconBuildingSkyscraper className="text-green-500 text-xl" size={32} />
@@ -94,7 +92,6 @@ export default function ProfilePage() {
                 <div className="px-3 py-1 text-lg font-semibold mb-2 w-full border border-gray-300 rounded-md">{EmergencyContact}</div>
               </div>
             </div>
-
           </div>
         </div>
       </div>

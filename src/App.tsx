@@ -2,10 +2,10 @@ import { Route, Routes } from "react-router-dom";
 import { BottomNavBar, Layout } from "@/components/templates";
 import {
   ArticlePage,
+  CsvPage,
   DashboardPage,
   ForgotPasswordPage,
   ForgotPasswordRequestPage,
-  // HomePage,
   InformationPage,
   LoginPage,
   PemasukanPage,
@@ -26,7 +26,6 @@ export default function App() {
         <Route path="/start" element={<StartingPage />} />
         <Route path="/what-features" element={<ShowFeaturesPage />} />
         <Route path="/articles" element={<ArticlePage />} />
-        {/* <Route path="/" element={<HomePage />} /> */}
         <Route path="/information" element={<InformationPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
@@ -38,6 +37,7 @@ export default function App() {
         <Route  element={<BottomNavBar />}>
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/statistic" element={<StatisticPage />} />
+          <Route path="/statistic/pengaturan" element={<CsvPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/update-profile" element={<UpdateProfilePage />} />
         </Route>
