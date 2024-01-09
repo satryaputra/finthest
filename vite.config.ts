@@ -13,8 +13,8 @@ export default defineConfig({
       },
       includeAssets: ["**/*"],
       manifest: {
-        theme_color: "#f69435",
-        background_color: "#f69435",
+        theme_color: "#1BC000",
+        background_color: "#1BC000",
         display: "standalone",
         scope: "/",
         start_url: "/",
