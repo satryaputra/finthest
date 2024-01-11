@@ -10,6 +10,6 @@ export { default as TermsConditionsPage } from "./TermsConditionsPage";
 export { default as QuestionPage } from "./QuestionPage";
 export { default as StatisticPage } from "./StatisticPage";
 export { default as ProfilePage } from "./ProfilePage";
-export { default as PemasukanPage } from "./PemasukanPage";
+export { default as PengeluaranPage } from "./PengeluaranPage";
 export { default as UpdateProfilePage } from "./UpdateProfilePage";
 export { default as CsvPage } from "./CsvPage";

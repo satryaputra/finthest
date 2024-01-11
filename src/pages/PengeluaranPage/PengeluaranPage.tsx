@@ -1,5 +1,5 @@
 
-function PemasukanPage() {
+function PengeluaranPage() {
   return (
     <div>
         <div className=''>
@@ -9,4 +9,4 @@ function PemasukanPage() {
   )
 }
 
-export default PemasukanPage
+export default PengeluaranPage
