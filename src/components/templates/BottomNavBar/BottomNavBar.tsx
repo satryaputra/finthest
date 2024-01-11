@@ -1,6 +1,7 @@
 import { BarChartBig, Home, UserRound } from "lucide-react";
+import React from "react";
 import { useNavigate, Outlet } from "react-router";
-import { BottomNavigation } from "reactjs-bottom-navigation";  
+import { BottomNavigation } from "reactjs-bottom-navigation";
 
 interface BottomNavItem {
   title: string;
@@ -8,17 +9,19 @@ interface BottomNavItem {
 }
 
 export default function BottomNavBar() {
+  const [itemSelected, setItemSelected] = React.useState(0);
+
   const bottomNavItems = [
     {
-      icon: <Home />,
+      icon: <Home className="hover:text-slate-600"/>,
       path: "/dashboard",
     },
     {
-      icon: <BarChartBig />,
-      path: "/statistic ",
+      icon: <BarChartBig className="hover:text-slate-600"/>,
+      path: "/statistic",
     },
     {
-      icon: <UserRound />,
+      icon: <UserRound className="hover:text-slate-600"/>,
       path: "/profile",
     },
   ];
@@ -26,14 +29,16 @@ export default function BottomNavBar() {
   const navigate = useNavigate();
 
   const handleItemClick = (item: BottomNavItem) => {
-    console.log(item);
-    // Pindah ke halaman yang sesuai dengan path item yang diklik
     navigate(item.path);
   };
 
+  React.useEffect(() => {
+    setItemSelected(bottomNavItems.findIndex((x) => x.path === window.location.pathname));
+  }, [window.location.pathname]);
+
   return (
     <>
-      <BottomNavigation items={bottomNavItems} selected={0} onItemClick={handleItemClick as any} activeBgColor="slateBlue" activeTextColor="white" />
+      <BottomNavigation items={bottomNavItems} selected={itemSelected} onItemClick={handleItemClick as any} activeBgColor="white" activeTextColor="green" />
       <Outlet />
     </>
   );
