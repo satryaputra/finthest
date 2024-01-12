@@ -16,6 +16,7 @@ import {
   StatisticPage,
   TermsConditionsPage,
   UpdateProfilePage,
+  SeeAllCalculationPage,
 } from "@/pages";
 
 
@@ -34,6 +35,7 @@ export default function App() {
         <Route path="/question" element={<QuestionPage />} />    
         <Route  element={<BottomNavBar />}> 
           <Route path="/dashboard" element={<DashboardPage />} /> 
+          <Route path="/dashboard/all-calculation" element={<SeeAllCalculationPage />} />
           <Route path="/statistic" element={<StatisticPage />} /> 
           <Route path="/statistic/pengaturan" element={<CsvPage />} /> 
           <Route path="/pengeluaran" element={<PengeluaranPage />} /> 
