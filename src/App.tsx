@@ -28,7 +28,7 @@ export default function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/forgot-password-request" element={<ForgotPasswordRequestPage />} />
-        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="/forgot-password/:userToken" element={<ForgotPasswordPage />} />
         <Route path="/terms-conditions" element={<TermsConditionsPage />} />
         <Route path="/question" element={<QuestionPage />} />
         <Route path="/pemasukan" element={<PemasukanPage />} />

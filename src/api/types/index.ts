@@ -3,6 +3,12 @@ export interface ICredentials {
   password: string;
 }
 
+export interface IRefreshToken{
+  accessToken: string;
+  refreshToken: string;
+  refreshTokenExpire: Date;
+}
+
 export interface IRegisterData{
   name: string;
   email: string;
@@ -12,6 +18,18 @@ export interface IRegisterData{
 
 export interface IAccessToken {
   accessToken: string;
+}
+
+export interface IRequestEmail{
+  email: string;
+}
+
+export interface IForgotPassword{
+  passwords: string;
+}
+
+export interface  IGeneralResponse{
+  message: string;
 }
 
 
