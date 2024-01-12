@@ -1,10 +1,23 @@
-import img1 from '../../assets/imgAuth.png'
+import img1 from "../../assets/imgAuth.png";
 import { FormProvider, useForm } from "react-hook-form";
-import { Input,Button } from "@/components/molecules";
+import { Input, Button } from "@/components/molecules";
 import { Link } from "react-router-dom";
+import { useMutateAuth } from "@/hooks/mutations/useMutateAuth";
+import { ICredentials } from "@/api/types";
 
 export default function LoginPage() {
-  const metodth = useForm();
+  const method = useForm<ICredentials>();
+
+  const { login } = useMutateAuth();
+
+  const onHandleSubmit = async (data: ICredentials) => {
+    await login.mutateAsync(data);
+  };
+
+  login.isSuccess && console.log(login.data);
+
+  login.isError && console.log((login.error as any).response.data);
+
   return (
     <div>
       <img src={img1} alt="" className="w-full" />
@@ -13,12 +26,8 @@ export default function LoginPage() {
         <h1 className="text-2xl font-semibold">Masuk</h1>
         <p className="text-secondary font-extralight">Selamat datang kembali! senang melihatmu disini.</p>
         <div>
-          <FormProvider {...metodth}>
-            <form
-              onSubmit={metodth.handleSubmit((data) => {
-                console.log(data);
-              })}
-            >
+          <FormProvider {...method}>
+            <form onSubmit={method.handleSubmit(onHandleSubmit)}>
               <div>
                 <Input name="email" label="Email" placeholder="Masukkan email anda" type="email" />
               </div>
