@@ -7,4 +7,3 @@ export const baseApi = axios.create({
   },
   withCredentials: true,
 });
-
