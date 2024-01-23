@@ -3,7 +3,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import useAuthStore from "@/hooks/store/useAuthStore";
 import useMe from "@/api/services/users/useMe";
 
-const PrivateRoute: React.FC = () => {
+const PrivateRouteMiddleware: React.FC = () => {
   const getMe = useMe();
 
   const existAccessToken = useAuthStore((state) => state.accessToken);
@@ -40,4 +40,4 @@ const PrivateRoute: React.FC = () => {
   return <Outlet />;
 };
 
-export default PrivateRoute;
+export default PrivateRouteMiddleware;
