@@ -1,6 +1,11 @@
-
 import { useNavigate } from "react-router-dom";
-import { IconPhoneCall, IconBuildingSkyscraper, IconUser, IconUserBolt, IconEdit } from "@tabler/icons-react";
+import {
+  IconPhoneCall,
+  IconBuildingSkyscraper,
+  IconUser,
+  IconUserBolt,
+  IconEdit,
+} from "@tabler/icons-react";
 import imgPP from "../../assets/pp.jpg";
 // import imgPP from '../../assets/homePage.png'
 import imgBG from "../../assets/background.png";
@@ -32,7 +37,9 @@ export default function ProfilePage() {
             <IconCircleArrowLeftFilled className="text-black text-xl" />
           </Button> */}
           <div className="flex-grow text-center">
-            <h1 className="text-center text-2xl text-white  font-semibold pt-10 mb-10">Profile</h1>
+            <h1 className="text-center text-2xl text-white  font-semibold pt-10 mb-10">
+              Profile
+            </h1>
           </div>
           <Button onClick={handleEditProfile}>
             <IconEdit className="text-white text-xl" />
@@ -47,7 +54,11 @@ export default function ProfilePage() {
             <div className="text-right text-base text-white">{Email}</div>
           </div>
           <div className="order-2 rounded-full bg-white w-28 h-28 mr-2 overflow-hidden ml-2">
-            <img src={imgPP} alt="Profile" className="w-full h-full object-cover" />
+            <img
+              src={imgPP}
+              alt="Profile"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
 
@@ -55,11 +66,16 @@ export default function ProfilePage() {
           <div className="bg-white-100 p-8 w-full">
             <div className="flex items-center mb-6">
               <div className="bg-white rounded-full p-3 border border-gray-300 shadow-md mr-4">
-                <IconBuildingSkyscraper className="text-green-500 text-xl" size={32} />
+                <IconBuildingSkyscraper
+                  className="text-green-500 text-xl"
+                  size={32}
+                />
               </div>
               <div className="flex flex-col w-full">
                 <div className="text-lg font-normal mb-0">Company/Branch</div>
-                <div className="px-3 py-1 text-lg font-semibold mb-2 w-full border border-gray-300 rounded-md">{Company}</div>
+                <div className="px-3 py-1 text-lg font-semibold mb-2 w-full border border-gray-300 rounded-md">
+                  {Company}
+                </div>
               </div>
             </div>
 
@@ -69,7 +85,9 @@ export default function ProfilePage() {
               </div>
               <div className="flex flex-col w-full">
                 <div className="text-lg font-normal mb-0">Nick Name</div>
-                <div className="px-3 py-1 text-lg font-semibold mb-2 w-full border border-gray-300 rounded-md">{NickName}</div>
+                <div className="px-3 py-1 text-lg font-semibold mb-2 w-full border border-gray-300 rounded-md">
+                  {NickName}
+                </div>
               </div>
             </div>
 
@@ -79,7 +97,9 @@ export default function ProfilePage() {
               </div>
               <div className="flex flex-col w-full">
                 <div className="text-lg font-normal mb-0">Emergency Name</div>
-                <div className="px-3 py-1 text-lg font-semibold mb-2 w-full border border-gray-300 rounded-md">{EmergencyName}</div>
+                <div className="px-3 py-1 text-lg font-semibold mb-2 w-full border border-gray-300 rounded-md">
+                  {EmergencyName}
+                </div>
               </div>
             </div>
 
@@ -88,8 +108,12 @@ export default function ProfilePage() {
                 <IconPhoneCall className="text-green-500 text-xl" size={32} />
               </div>
               <div className="flex flex-col w-full">
-                <div className="text-lg font-normal mb-0">Emergency Contact</div>
-                <div className="px-3 py-1 text-lg font-semibold mb-2 w-full border border-gray-300 rounded-md">{EmergencyContact}</div>
+                <div className="text-lg font-normal mb-0">
+                  Emergency Contact
+                </div>
+                <div className="px-3 py-1 text-lg font-semibold mb-2 w-full border border-gray-300 rounded-md">
+                  {EmergencyContact}
+                </div>
               </div>
             </div>
           </div>

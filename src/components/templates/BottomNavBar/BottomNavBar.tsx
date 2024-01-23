@@ -13,15 +13,15 @@ export default function BottomNavBar() {
 
   const bottomNavItems = [
     {
-      icon: <Home className="hover:text-slate-600"/>,
-      path: "/dashboard",
+      icon: <Home className="hover:text-slate-600" />,
+      path: "/",
     },
     {
-      icon: <BarChartBig className="hover:text-slate-600"/>,
-      path: "/statistic",
+      icon: <BarChartBig className="hover:text-slate-600" />,
+      path: "/activities",
     },
     {
-      icon: <UserRound className="hover:text-slate-600"/>,
+      icon: <UserRound className="hover:text-slate-600" />,
       path: "/profile",
     },
   ];
@@ -33,12 +33,20 @@ export default function BottomNavBar() {
   };
 
   React.useEffect(() => {
-    setItemSelected(bottomNavItems.findIndex((x) => x.path === window.location.pathname));
+    setItemSelected(
+      bottomNavItems.findIndex((x) => x.path === window.location.pathname)
+    );
   }, [window.location.pathname]);
 
   return (
     <>
-      <BottomNavigation items={bottomNavItems} selected={itemSelected} onItemClick={handleItemClick as any} activeBgColor="white" activeTextColor="green" />
+      <BottomNavigation
+        items={bottomNavItems}
+        selected={itemSelected}
+        onItemClick={handleItemClick as any}
+        activeBgColor="white"
+        activeTextColor="green"
+      />
       <Outlet />
     </>
   );

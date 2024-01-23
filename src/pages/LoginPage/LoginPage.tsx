@@ -5,6 +5,7 @@ import { Input, Button } from "@/components/molecules";
 import { Link } from "react-router-dom";
 import type { ICredentials } from "@/api/types";
 import useLogin from "@/api/services/auth/useLogin";
+import useAuthStore from "@/hooks/store/useAuthStore";
 
 export default function LoginPage() {
   const method = useForm<ICredentials>();
@@ -14,8 +15,8 @@ export default function LoginPage() {
     await login.mutateAsync(data);
   };
 
-  login.isSuccess && console.log(login.data);
-  login.isError && console.log((login.error as any).response.data);
+  console.log(useAuthStore.getState().accessToken);
+  console.log(useAuthStore.getState().user);
 
   return (
     <div>

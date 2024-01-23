@@ -11,25 +11,15 @@ const PrivateRouteMiddleware: React.FC = () => {
   const setUser = useAuthStore((state) => state.setUser);
   const resetAuth = useAuthStore((state) => state.resetAuth);
 
-  React.useEffect(() => {
-    const fetchData = async () => {
-      try {
-        if (!existUser && !getMe.isError) {
-          await getMe.refetch();
-          if (getMe.isSuccess && getMe.data) {
-            setUser(getMe.data);
-          }
-        }
-      } catch (error) {
-        resetAuth();
-      }
-    };
-
-    fetchData();
-  }, [existUser, getMe, setUser, resetAuth]);
-
   if (!existAccessToken && !existUser) {
     return <Navigate to={"/login"} />;
+  }
+
+  if (!existUser && !getMe.isError) {
+    getMe.refetch();
+    if (getMe.isSuccess && getMe.data) {
+      setUser(getMe.data);
+    }
   }
 
   if (getMe.isError) {

@@ -6,7 +6,8 @@ import ProfilePicture from "../../assets/ProfilePicture.svg";
 import { useNavigate } from "react-router-dom";
 
 export default function DashboardPage() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
   return (
     <div className="w-full flex flex-col px-7">
       <div className="w-full flex items-center space-x-3 mt-6">
@@ -74,11 +75,19 @@ export default function DashboardPage() {
       <div className="w-full flex flex-col mt-3 mb-20">
         <div className="flex justify-between px-5">
           <p className="font-medium text-lg">Hasil Kalkulasi</p>
-          <span className="font-medium text-sm text-[#408FFF] cursor-pointer" onClick={() => navigate("/dashboard/all-calculation")}>Lihat Semua</span>
+          <span
+            className="font-medium text-sm text-[#408FFF] cursor-pointer"
+            onClick={() => navigate("/dashboard/all-calculation")}
+          >
+            Lihat Semua
+          </span>
         </div>
         <div className="w-full flex pl-5 gap-3 mt-3">
           <CalculationCard />
         </div>
+      </div>
+      <div>
+        <h1>test</h1>
       </div>
     </div>
   );
