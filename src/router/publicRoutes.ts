@@ -1,20 +1,34 @@
-import React from "react";
+import { createElement } from "react";
 import { RouteObject } from "react-router-dom";
-import { ArticlePage, ShowFeaturesPage, StartingPage } from "@/pages";
+import {
+  ArticlePage,
+  ForgotPasswordPage,
+  ForgotPasswordRequestPage,
+  ShowFeaturesPage,
+  StartingPage,
+} from "@/pages";
 
 const publicRoutes: RouteObject = {
   children: [
     {
       path: "/get-started",
-      element: React.createElement(StartingPage),
+      element: createElement(StartingPage),
     },
     {
       path: "/what-features",
-      element: React.createElement(ShowFeaturesPage),
+      element: createElement(ShowFeaturesPage),
     },
     {
       path: "/articles",
-      element: React.createElement(ArticlePage),
+      element: createElement(ArticlePage),
+    },
+    {
+      path: "/forgot-password",
+      element: createElement(ForgotPasswordRequestPage),
+    },
+    {
+      path: "/forgot-password/:token",
+      element: createElement(ForgotPasswordPage),
     },
   ],
 };
