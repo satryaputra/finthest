@@ -1,8 +1,8 @@
-import { ArticlePage, ShowFeaturesPage, StartingPage } from "@/pages";
 import React from "react";
 import { RouteObject } from "react-router-dom";
+import { ArticlePage, ShowFeaturesPage, StartingPage } from "@/pages";
 
-export const publicRoutes: RouteObject = {
+const publicRoutes: RouteObject = {
   children: [
     {
       path: "/get-started",
@@ -18,3 +18,5 @@ export const publicRoutes: RouteObject = {
     },
   ],
 };
+
+export default publicRoutes;
