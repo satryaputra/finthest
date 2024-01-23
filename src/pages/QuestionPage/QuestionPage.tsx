@@ -8,7 +8,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "../../components/ui/pop
 import { Button } from "../../components/ui/button";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem } from "../../components/ui/command";
-import { yearsPlan } from "../../lib/data/index";
+import { yearsPlan } from "../../lib/data";
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';

@@ -3,7 +3,7 @@ import img1 from "../../assets/imgAuth.png";
 import { FormProvider, useForm } from "react-hook-form";
 import { Input } from "../../components/molecules";
 import Button from "../../components/molecules/Button";
-import { useRegister } from "@/api/services/auth/useRegister";
+import useRegister from "@/api/services/auth/useRegister";
 
 type RegisterInput = {
   name: string;

@@ -17,27 +17,36 @@ import {
   TermsConditionsPage,
   UpdateProfilePage,
 } from "@/pages";
+import PrivateRoute from "./middlewares/PrivateRoute";
 
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route path="/start" element={<StartingPage />} />
-        <Route path="/what-features" element={<ShowFeaturesPage />} />
-        <Route path="/articles" element={<ArticlePage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/forgot-password-request" element={<ForgotPasswordRequestPage />} />
-        <Route path="/forgot-password/:userToken" element={<ForgotPasswordPage />} />
-        <Route path="/terms-conditions" element={<TermsConditionsPage />} />
-        <Route path="/question" element={<QuestionPage />} />
-        <Route path="/pemasukan" element={<PemasukanPage />} />
-        <Route  element={<BottomNavBar />}>
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/statistic" element={<StatisticPage />} />
-          <Route path="/statistic/pengaturan" element={<CsvPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/update-profile" element={<UpdateProfilePage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route element={<PrivateRoute />}>
+        <Route element={<Layout />}>
+          <Route path="/" element={<StartingPage />} />
+          <Route path="/what-features" element={<ShowFeaturesPage />} />
+          <Route path="/articles" element={<ArticlePage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route
+            path="/forgot-password-request"
+            element={<ForgotPasswordRequestPage />}
+          />
+          <Route
+            path="/forgot-password/:userToken"
+            element={<ForgotPasswordPage />}
+          />
+          <Route path="/terms-conditions" element={<TermsConditionsPage />} />
+          <Route path="/question" element={<QuestionPage />} />
+          <Route path="/pemasukan" element={<PemasukanPage />} />
+          <Route element={<BottomNavBar />}>
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/statistic" element={<StatisticPage />} />
+            <Route path="/statistic/pengaturan" element={<CsvPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/update-profile" element={<UpdateProfilePage />} />
+          </Route>
         </Route>
       </Route>
     </Routes>

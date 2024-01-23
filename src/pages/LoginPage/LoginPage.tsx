@@ -3,8 +3,8 @@ import img1 from "../../assets/imgAuth.png";
 import { FormProvider, useForm } from "react-hook-form";
 import { Input, Button } from "@/components/molecules";
 import { Link } from "react-router-dom";
-import { ICredentials } from "@/api/types";
-import { useLogin } from "@/api/services/auth/useLogin";
+import type { ICredentials } from "@/api/types";
+import useLogin from "@/api/services/auth/useLogin";
 
 export default function LoginPage() {
   const method = useForm<ICredentials>();

@@ -2,9 +2,23 @@ import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/molecules";
 import bgStarting from "/images/bg-starting.png";
+import privateApi from "@/api/config/privateApi";
+import { useQuery } from "@tanstack/react-query";
 
 export default function StartingPage() {
   const navigate = useNavigate();
+
+  const { data } = useQuery({
+    queryKey: ["test"],
+    queryFn: async () => {
+      const response = await privateApi.get("/users/test");
+      return response.data;
+    },
+    retry: 1,
+  });
+
+  console.log(data);
+
   return (
     <div>
       <img src={bgStarting} alt="background starting page" className="w-full" />
