@@ -22,11 +22,8 @@ export default function RegisterPage() {
     ...data
   }: RegisterInput) => {
     await register.mutateAsync(data);
+    console.log(data);
   };
-
-  register.isSuccess && console.log(register.data);
-
-  register.isError && console.log((register.error as any).response.data);
 
   return (
     <div>
