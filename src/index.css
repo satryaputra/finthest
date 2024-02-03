@@ -1,7 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 html {
   @apply scrollbar-hide;
+  font-family: "Poppins", sans-serif;
+}
+
+
+.bottom-nav {
+  max-width: 480px;
+  right: 50%;
+  transform: translateX(50%);
 }
