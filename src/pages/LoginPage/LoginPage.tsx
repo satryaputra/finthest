@@ -1,22 +1,40 @@
 import img1 from "../../assets/imgAuth.png";
-
-import { FormProvider, useForm } from "react-hook-form";
-import { Input, Button } from "@/components/molecules";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { Input as _Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Form } from "@/components/ui/form";
 import type { ICredentials } from "@/api/types";
+import FormField from "@/components/molecules/FormField/FormField";
 import useLogin from "@/api/services/auth/useLogin";
-import useAuthStore from "@/hooks/store/useAuthStore";
+
+const formSchema = z.object({
+  email: z.string().email("Email tidak valid"),
+  password: z.string().min(2, "Minimal 2"),
+});
 
 export default function LoginPage() {
-  const method = useForm<ICredentials>();
+  const methods = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+
   const login = useLogin();
 
   const onHandleSubmit = async (data: ICredentials) => {
     await login.mutateAsync(data);
   };
 
-  console.log(useAuthStore.getState().accessToken);
-  console.log(useAuthStore.getState().user);
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    alert(JSON.stringify(values));
+  }
 
   return (
     <div>
@@ -27,44 +45,18 @@ export default function LoginPage() {
         <p className="text-secondary font-extralight">
           Selamat datang kembali! senang melihatmu disini.
         </p>
-        <div>
-          <FormProvider {...method}>
-            <form onSubmit={method.handleSubmit(onHandleSubmit)}>
-              <div>
-                <Input
-                  name="email"
-                  label="Email"
-                  placeholder="Masukkan email anda"
-                  type="email"
-                />
-              </div>
-              <div>
-                <Input
-                  name="password"
-                  label="Password"
-                  placeholder="Masukkan password anda"
-                  type="password"
-                />
-              </div>
-              <p className="text-end">
-                <Link
-                  to="/forgot-password"
-                  className="text-secondary font-semibold text-sm "
-                >
-                  Lupa Password?
-                </Link>
-              </p>
-              <div className="mt-10 flex flex-col gap-4">
-                <Button
-                  type="submit"
-                  className="bg-primary w-full py-2 rounded text-white"
-                >
-                  Masuk
-                </Button>
-              </div>
-            </form>
-          </FormProvider>
-        </div>
+        <Form {...methods}>
+          <form onSubmit={methods.handleSubmit(onSubmit)} className="space-y-3">
+            <FormField name="email" label="Email" placeholder="Email" />
+            <FormField
+              name="password"
+              type="password"
+              label="Password"
+              placeholder="Password"
+            />
+            <Button type="submit">Submit</Button>
+          </form>
+        </Form>
         <div className="text-center mt-10">
           <p>
             Belum mempunyai akun?

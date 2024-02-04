@@ -1,6 +1,7 @@
 import React from "react";
 // import { cn } from "@/lib/utils";
-import { useFormContext } from "react-hook-form";
+import { Controller, useFormContext } from "react-hook-form";
+import { Input as _Input } from "@/components/ui/input";
 
 interface Props {
   name: string;
@@ -12,7 +13,14 @@ interface Props {
 }
 
 export default function Input(props: Props): JSX.Element {
-  const { name, label, type, defaultValue = "", className = "", ...otherProps } = props;
+  const {
+    name,
+    label,
+    type,
+    defaultValue = "",
+    className = "",
+    ...otherProps
+  } = props;
 
   const { register } = useFormContext();
 
@@ -26,23 +34,34 @@ export default function Input(props: Props): JSX.Element {
     setValue(e.target.value);
   };
 
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext();
+
   return (
-    <div>
-      {label && (
-        <label htmlFor={name} className="text-sm lg:text-base bg-white px-2 lg:px-4 font-medium transition-all duration-100 ease-in-out text-dark">
-          {label}
-        </label>
-      )}
-      <input
-        {...register(name)}
-        id={name}
-        placeholder={otherProps.placeholder}
-        className="w-full h-full outline-none py-3 mt-2 font-sans text-black text-sm rounded px-4 border-[1px] lg:text-base placeholder:text-sm"
-        type={isEyeIconOpen ? "text" : type}
-        autoComplete="off"
-        value={value}
-        onChange={handleChange}
-      />
-    </div>
+    <Controller
+      control={control}
+      defaultValue=""
+      name={name}
+      render={({ field }) => <_Input {...field} />}
+    />
+    // <div>
+    //   {label && (
+    //     <label htmlFor={name} className="text-sm lg:text-base bg-white px-2 lg:px-4 font-medium transition-all duration-100 ease-in-out text-dark">
+    //       {label}
+    //     </label>
+    //   )}
+    //   <input
+    //     {...register(name)}
+    //     id={name}
+    //     placeholder={otherProps.placeholder}
+    //     className="w-full h-full outline-none py-3 mt-2 font-sans text-black text-sm rounded px-4 border-[1px] lg:text-base placeholder:text-sm"
+    //     type={isEyeIconOpen ? "text" : type}
+    //     autoComplete="off"
+    //     value={value}
+    //     onChange={handleChange}
+    //   />
+    // </div>
   );
 }
