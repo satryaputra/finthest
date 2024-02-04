@@ -1,3 +1,4 @@
+import defaultTheme from "tailwindcss/defaultTheme";
 import type { Config } from "tailwindcss";
 
 const config = {
@@ -18,6 +19,20 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["Inter", ...defaultTheme.fontFamily.sans],
+      },
+      minHeight: {
+        // @ts-ignore
+        screen: ["100vh /* fallback for Opera, IE and etc. */", "100dvh"],
+      },
+      height: {
+        // @ts-ignore
+        screen: ["100vh /* fallback for Opera, IE and etc. */", "100dvh"],
+      },
+      fontSize: {
+        "2xs": ".65rem",
+      },
       colors: {
         primary: "#1BC000",
         dark: "#0F172A",

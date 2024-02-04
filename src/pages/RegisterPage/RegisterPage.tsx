@@ -1,7 +1,7 @@
 import img1 from "../../assets/imgAuth.png";
 
 import { FormProvider, useForm } from "react-hook-form";
-import { Input } from "../../components/molecules";
+import { Input } from "../../components/ui/input";
 import Button from "../../components/molecules/Button";
 import useRegister from "@/api/services/auth/useRegister";
 
@@ -40,7 +40,6 @@ export default function RegisterPage() {
               <div>
                 <Input
                   name="name"
-                  label="Nama"
                   placeholder="Masukkan nama lengkap anda"
                   type="text"
                 />
@@ -48,7 +47,6 @@ export default function RegisterPage() {
               <div>
                 <Input
                   name="email"
-                  label="Email"
                   placeholder="Masukkan email anda"
                   type="email"
                 />
@@ -56,7 +54,6 @@ export default function RegisterPage() {
               <div>
                 <Input
                   name="password"
-                  label="Password"
                   placeholder="Masukkan password anda"
                   type="password"
                 />
@@ -64,7 +61,6 @@ export default function RegisterPage() {
               <div>
                 <Input
                   name="confirmPassword"
-                  label="konfirmasi Password"
                   placeholder="Masukkan konfirmasi Password anda"
                   type="password"
                 />

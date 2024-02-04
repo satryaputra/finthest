@@ -1,17 +1,23 @@
 import { cn } from "@/lib/utils";
 import { Button as _Button, type ButtonProps } from "@/components/ui/button";
+import { LoadingSpinner } from "@/components/atoms";
 
-export default function Button(props: ButtonProps) {
-  const { children, className } = props;
+interface IButtonProps extends ButtonProps {
+  isLoading?: boolean;
+}
+
+export default function Button(props: IButtonProps) {
+  const { children, className, isLoading, ...otherProps } = props;
   return (
     <_Button
-      {...props}
       className={cn(
-        "bg-primary hover:bg-primary/80 w-full text-xl py-6 group mt-4",
+        "bg-primary hover:bg-primary/80 focus:!ring-1 focus:!ring-primary",
         className
       )}
+      disabled={isLoading}
+      {...otherProps}
     >
-      {children}
+      {!isLoading ? children : <LoadingSpinner />}
     </_Button>
   );
 }

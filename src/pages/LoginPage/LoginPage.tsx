@@ -1,18 +1,19 @@
-import img1 from "../../assets/imgAuth.png";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form";
 import { Input as _Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Form } from "@/components/ui/form";
-import type { ICredentials } from "@/api/types";
-import FormField from "@/components/molecules/FormField/FormField";
+import { Button } from "@/components/molecules";
+import { FormField } from "@/components/molecules";
 import useLogin from "@/api/services/auth/useLogin";
+import img1 from "../../assets/imgAuth.png";
 
 const formSchema = z.object({
-  email: z.string().email("Email tidak valid"),
-  password: z.string().min(2, "Minimal 2"),
+  email: z.string().min(1, "Email diperlukan").email("Email tidak valid"),
+  password: z
+    .string()
+    .min(1, "Password diperlukan")
+    .min(8, "Password harus 8 karakter atau lebih"),
 });
 
 export default function LoginPage() {
@@ -26,14 +27,8 @@ export default function LoginPage() {
 
   const login = useLogin();
 
-  const onHandleSubmit = async (data: ICredentials) => {
+  async function onSubmit(data: z.infer<typeof formSchema>) {
     await login.mutateAsync(data);
-  };
-
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    alert(JSON.stringify(values));
   }
 
   return (
@@ -41,12 +36,15 @@ export default function LoginPage() {
       <img src={img1} alt="" className="w-full" />
 
       <div className="px-6 py-6 flex flex-col gap-2">
-        <h1 className="text-2xl font-semibold">Masuk</h1>
+        <h1 className="text-3xl font-semibold">Masuk</h1>
         <p className="text-secondary font-extralight">
           Selamat datang kembali! senang melihatmu disini.
         </p>
-        <Form {...methods}>
-          <form onSubmit={methods.handleSubmit(onSubmit)} className="space-y-3">
+        <FormProvider {...methods}>
+          <form
+            onSubmit={methods.handleSubmit(onSubmit)}
+            className="flex flex-col gap-1"
+          >
             <FormField name="email" label="Email" placeholder="Email" />
             <FormField
               name="password"
@@ -54,9 +52,15 @@ export default function LoginPage() {
               label="Password"
               placeholder="Password"
             />
-            <Button type="submit">Submit</Button>
+            <Button
+              type="submit"
+              className="w-full mt-4"
+              isLoading={login.isPending}
+            >
+              Submit
+            </Button>
           </form>
-        </Form>
+        </FormProvider>
         <div className="text-center mt-10">
           <p>
             Belum mempunyai akun?

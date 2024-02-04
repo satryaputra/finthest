@@ -1,10 +1,10 @@
-import React  from 'react'
-import { Link, } from 'react-router-dom';
-import img1 from '../../assets/homePage.png'
+import React from "react";
+import { Link } from "react-router-dom";
+import img1 from "../../assets/homePage.png";
 import { FormProvider, useForm } from "react-hook-form";
-import { Input } from "../../components/molecules";
-import { Camera } from 'lucide-react';
-import { IconCircleArrowLeftFilled } from '@tabler/icons-react';
+import { Input } from "../../components/ui/input";
+import { Camera } from "lucide-react";
+import { IconCircleArrowLeftFilled } from "@tabler/icons-react";
 // interface def {
 //   company: string,
 //   email: string,
@@ -17,7 +17,6 @@ export default function UpdateProfilePage() {
   const metodth = useForm();
 
   const [imagePreview, setImagePreview] = React.useState<string | null>(null);
-
 
   // const handleSubmit = async (event: React.FormEvent) => {
   //   event.preventDefault();
@@ -49,10 +48,10 @@ export default function UpdateProfilePage() {
 
   return (
     <>
-      <div className="flex flex-col" >
+      <div className="flex flex-col">
         <div className="flex items-center justify-between top-0 px-4 relative z-10">
           <div className="flex items-center">
-            <Link to="/profile" >
+            <Link to="/profile">
               <IconCircleArrowLeftFilled className="text-black text-xl" />
             </Link>
           </div>
@@ -61,13 +60,20 @@ export default function UpdateProfilePage() {
           </div>
         </div>
 
-
         <div className="flex items-center justify-center relative top-6">
-          <div className='w-32 h-32 rounded-full overflow-hidden position-relative'>
+          <div className="w-32 h-32 rounded-full overflow-hidden position-relative">
             {imagePreview ? (
-              <img src={imagePreview} alt="Preview" className="w-full h-full object-cover" />
+              <img
+                src={imagePreview}
+                alt="Preview"
+                className="w-full h-full object-cover"
+              />
             ) : (
-              <img src={img1} alt="Foto" className="w-full h-full object-cover" />
+              <img
+                src={img1}
+                alt="Foto"
+                className="w-full h-full object-cover"
+              />
             )}
           </div>
           <div className="absolute bottom-0 ml-20 ">
@@ -96,25 +102,48 @@ export default function UpdateProfilePage() {
         <div className="mt-20 mb-32 mx-3">
           <FormProvider {...metodth}>
             <form
-              // onSubmit={handleSubmit}
+            // onSubmit={handleSubmit}
             >
               <div>
-                <Input name="company" label="Company/ Branch" defaultValue={company} type="text" />
+                <Input
+                  name="company"
+                  defaultValue={company}
+                  type="text"
+                />
               </div>
               <div>
-                <Input name="email" label="Email Address" defaultValue={email} type="email" />
+                <Input
+                  name="email"
+                  defaultValue={email}
+                  type="email"
+                />
               </div>
               <div>
-                <Input name="name" label="Name" defaultValue={name} type="text" />
+                <Input
+                  name="name"
+                  defaultValue={name}
+                  type="text"
+                />
               </div>
               <div>
-                <Input name="nickname" label="Nick Name" defaultValue={ename} type="text" />
+                <Input
+                  name="nickname"
+                  defaultValue={ename}
+                  type="text"
+                />
               </div>
               <div>
-                <Input name="contact" label="Emergency Contact" defaultValue={contact} type="number" />
+                <Input
+                  name="contact"
+                  defaultValue={contact}
+                  type="number"
+                />
               </div>
               <div className="mt-10 mb-10 flex flex-col gap-4">
-                <button type="submit" className="bg-primary w-full py-2 rounded-full text-white ">
+                <button
+                  type="submit"
+                  className="bg-primary w-full py-2 rounded-full text-white "
+                >
                   Update Profile
                 </button>
               </div>
@@ -123,5 +152,5 @@ export default function UpdateProfilePage() {
         </div>
       </div>
     </>
-  )
+  );
 }
