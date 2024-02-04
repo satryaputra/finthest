@@ -8,7 +8,7 @@ import { FormField } from "@/components/molecules";
 import useLogin from "@/api/services/auth/useLogin";
 import img1 from "../../assets/imgAuth.png";
 
-const formSchema = z.object({
+const loginSchema = z.object({
   email: z.string().min(1, "Email diperlukan").email("Email tidak valid"),
   password: z
     .string()
@@ -17,8 +17,8 @@ const formSchema = z.object({
 });
 
 export default function LoginPage() {
-  const methods = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  const methods = useForm<z.infer<typeof loginSchema>>({
+    resolver: zodResolver(loginSchema),
     defaultValues: {
       email: "",
       password: "",
@@ -27,9 +27,9 @@ export default function LoginPage() {
 
   const login = useLogin();
 
-  async function onSubmit(data: z.infer<typeof formSchema>) {
+  const onSubmit = async (data: z.infer<typeof loginSchema>) => {
     await login.mutateAsync(data);
-  }
+  };
 
   return (
     <div>
@@ -64,7 +64,7 @@ export default function LoginPage() {
         <div className="text-center mt-10">
           <p>
             Belum mempunyai akun?
-            <Link to="/register" className="text-blue-500">
+            <Link to="/signup" className="text-blue-500">
               {" "}
               Buat Akun
             </Link>

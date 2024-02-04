@@ -1,6 +1,6 @@
 import { createElement } from "react";
 import { RouteObject } from "react-router-dom";
-import { LoginPage, RegisterPage } from "@/pages";
+import { LoginPage, SignupPage } from "@/pages";
 
 const authRoutes: RouteObject = {
   children: [
@@ -9,8 +9,8 @@ const authRoutes: RouteObject = {
       element: createElement(LoginPage),
     },
     {
-      path: "/register",
-      element: createElement(RegisterPage),
+      path: "/signup",
+      element: createElement(SignupPage),
     },
   ],
 };
