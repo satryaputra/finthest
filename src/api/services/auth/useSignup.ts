@@ -4,18 +4,25 @@ import { useMutation } from "@tanstack/react-query";
 import type { IAccessToken, IUser } from "@/api/types";
 import useAuthStore from "@/hooks/store/useAuthStore";
 
-const useRegister = () => {
+const SIGNUP_URL = "auth/signup";
+
+const useSignup = () => {
   const navigate = useNavigate();
   return useMutation({
-    mutationFn: async (registerData: Omit<IUser, "id">): Promise<IAccessToken> => {
-      const response = await baseApi.post<IAccessToken>("auth/register", registerData);
+    mutationFn: async (
+      registerData: Omit<IUser, "id">
+    ): Promise<IAccessToken> => {
+      const response = await baseApi.post<IAccessToken>(
+        SIGNUP_URL,
+        registerData
+      );
       return response.data;
     },
     onSuccess: ({ accessToken }) => {
       useAuthStore.getState().setAccessToken(accessToken);
       navigate("/");
-    }
+    },
   });
 };
 
-export default useRegister;
+export default useSignup;
