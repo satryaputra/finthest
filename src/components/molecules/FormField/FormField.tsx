@@ -12,10 +12,11 @@ import { cn } from "@/lib/utils";
 interface FormFieldProps extends InputProps {
   name: string;
   label: string;
+  error?: string;
 }
 
 export default function FormField(props: FormFieldProps) {
-  const { name, label, placeholder, className, ...otherInputProps } = props;
+  const { name, label, placeholder, className, error, ...otherInputProps } = props;
   const { control } = useFormContext();
   return (
     <_FormField
@@ -32,7 +33,9 @@ export default function FormField(props: FormFieldProps) {
               {...otherInputProps}
             />
           </FormControl>
-          <FormMessage className="text-xs font-normal italic !mt-[.3rem] pl-1" />
+          <FormMessage className="text-sm font-normal italic !mt-[.3rem] pl-1">
+            {error}
+          </FormMessage>
         </FormItem>
       )}
     />
