@@ -20,7 +20,7 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", ...defaultTheme.fontFamily.sans],
+        sans: ["Satoshi", ...defaultTheme.fontFamily.sans],
       },
       minHeight: {
         // @ts-ignore

@@ -6,20 +6,21 @@ import useMe from "@/api/services/users/useMe";
 const PrivateRouteMiddleware: React.FC = () => {
   const getMe = useMe();
 
-  const existAccessToken = useAuthStore((state) => state.accessToken);
-  const existUser = useAuthStore((state) => state.user);
-  const setUser = useAuthStore((state) => state.setUser);
-  const resetAuth = useAuthStore((state) => state.resetAuth);
+  const { accessToken, user, setUser, resetAuth } = useAuthStore(
+    (state) => state
+  );
 
-  if (!existAccessToken && !existUser) {
+  if (!accessToken) {
+    resetAuth();
     return <Navigate to={"/login"} />;
   }
 
-  if (!existUser && !getMe.isError) {
+  if (!user) {
     getMe.refetch();
-    if (getMe.isSuccess && getMe.data) {
-      setUser(getMe.data);
-    }
+  }
+
+  if (getMe.isSuccess) {
+    setUser(getMe.data);
   }
 
   if (getMe.isError) {
