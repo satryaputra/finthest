@@ -1,14 +1,14 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm } from "react-hook-form";
 import { FormField } from "@/components/molecules";
 import { Button } from "@/components/molecules";
 import { Button as SButton } from "@/components/ui/button";
-import useSignup from "@/api/services/auth/useSignup";
-import img1 from "../../assets/imgAuth.png";
 import { isObjectEmpty } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
+import useSignup from "@/api/services/auth/useSignup";
+import img1 from "../../assets/imgAuth.png";
 
 const signupSchema = z
   .object({
@@ -34,8 +34,6 @@ const signupSchema = z
   });
 
 export default function SignupPage() {
-  const navigate = useNavigate();
-
   const methods = useForm<z.infer<typeof signupSchema>>({
     resolver: zodResolver(signupSchema),
     defaultValues: {
