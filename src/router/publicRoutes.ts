@@ -3,7 +3,7 @@ import { RouteObject } from "react-router-dom";
 import {
   ArticlePage,
   ForgotPasswordPage,
-  ForgotPasswordRequestPage,
+  ResetPasswordPage,
   ShowFeaturesPage,
   StartingPage,
 } from "@/pages";
@@ -24,11 +24,11 @@ const publicRoutes: RouteObject = {
     },
     {
       path: "/forgot-password",
-      element: createElement(ForgotPasswordRequestPage),
+      element: createElement(ForgotPasswordPage),
     },
     {
       path: "/forgot-password/:token",
-      element: createElement(ForgotPasswordPage),
+      element: createElement(ResetPasswordPage),
     },
   ],
 };

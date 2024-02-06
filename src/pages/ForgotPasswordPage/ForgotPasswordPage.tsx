@@ -1,53 +1,71 @@
-import img1 from "../../assets/imgAuth.png";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { FormProvider, useForm } from "react-hook-form";
-import { Button } from "../../components/molecules";
-import { Input } from "@/components/ui/input";
+import { useNavigate } from "react-router-dom";
+import { Button, FormField } from "@/components/molecules";
+import img1 from "../../assets/imgAuth.png";
+
+const forgotPasswordSchema = z.object({
+  email: z
+    .string()
+    .min(1, "Email tidak boleh kosong")
+    .email("Alamat email tidak valid"),
+});
 
 export default function ForgotPasswordPage() {
-  const metodth = useForm();
+  const navigate = useNavigate();
+
+  const methods = useForm<z.infer<typeof forgotPasswordSchema>>({
+    resolver: zodResolver(forgotPasswordSchema),
+    defaultValues: {
+      email: "",
+    },
+  });
+
+  const onSubmit = async (data: z.infer<typeof forgotPasswordSchema>) => {
+    console.log(data);
+  };
   return (
     <div>
       <img src={img1} alt="" className="w-full" />
 
       <div className="px-6 py-6 flex flex-col gap-2">
-        <h1 className="text-2xl font-semibold">Reset Password</h1>
-        <p className="text-secondary font-extralight">
-          Buat password yang unik serta rumit dari sebelumnya!
+        <h1 className="text-neutral-950 text-2xl font-semibold">
+          Selamat datang di Finthest
+        </h1>
+        <p className="text-sm">
+          Masukan alamat email yang telah terdaftar menerima email reset kata
+          sandi.
         </p>
-        <div>
-          <FormProvider {...metodth}>
-            <form
-              onSubmit={metodth.handleSubmit((data) => {
-                console.log(data);
-              })}
+        <FormProvider {...methods}>
+          <form
+            onSubmit={methods.handleSubmit(onSubmit)}
+            className="mt-2"
+          >
+            <FormField name="email" label="Alamat Email" />
+            {/* {login.isError && (
+              <Alert variant="destructive" className="my-3 !py-[.8rem]">
+                <AlertCircle className="!top-1/2 h-4 w-4 !-translate-y-1/2 !absolute" />
+                <AlertTitle className="!mb-0">
+                  {(login.error as any)?.response?.data?.message}
+                </AlertTitle>
+              </Alert>
+            )} */}
+            <Button
+              type="submit"
+              className="w-full mt-8"
+              // isLoading={login.isPending}
             >
-              <div>
-                <Input
-                  name="email"
-                  placeholder="Masukkan Password Baru"
-                  type="password"
-                />
-              </div>
-              <div>
-                <Input
-                  name="confirmPassword"
-                  placeholder="Masukkan Konfirmasi Password Baru"
-                  type="password"
-                />
-              </div>
-              <p className="text-end"></p>
-              <div className="mt-10 flex flex-col gap-4">
-                <Button
-                  type="submit"
-                  className="bg-primary w-full py-2 rounded text-white"
-                >
-                  Masuk
-                </Button>
-              </div>
-            </form>
-          </FormProvider>
-        </div>
-        <div className="text-center mt-10"></div>
+              Kirim
+            </Button>
+            <p
+              className="underline text-sm text-center mt-4 text-blue-500 cursor-pointer"
+              onClick={() => navigate(-1)}
+            >
+              Kembali
+            </p>
+          </form>
+        </FormProvider>
       </div>
     </div>
   );

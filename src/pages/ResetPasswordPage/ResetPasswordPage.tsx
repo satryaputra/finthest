@@ -1,19 +1,18 @@
 import img1 from "../../assets/imgAuth.png";
 import { FormProvider, useForm } from "react-hook-form";
+import { Button } from "../../components/molecules";
 import { Input } from "@/components/ui/input";
-import { Link } from "react-router-dom";
-import Button from "@/components/molecules/Button";
 
-export default function ForgotPasswordRequestPage() {
+export default function ResetPasswordPage() {
   const metodth = useForm();
   return (
     <div>
       <img src={img1} alt="" className="w-full" />
 
       <div className="px-6 py-6 flex flex-col gap-2">
-        <h1 className="text-2xl font-semibold">Request Kode</h1>
+        <h1 className="text-2xl font-semibold">Reset Password</h1>
         <p className="text-secondary font-extralight">
-          Jangan khawatir! kami akan mengirimkan kode ke email anda.
+          Buat password yang unik serta rumit dari sebelumnya!
         </p>
         <div>
           <FormProvider {...metodth}>
@@ -25,29 +24,30 @@ export default function ForgotPasswordRequestPage() {
               <div>
                 <Input
                   name="email"
-                  placeholder="Input your email"
-                  type="email"
+                  placeholder="Masukkan Password Baru"
+                  type="password"
                 />
               </div>
+              <div>
+                <Input
+                  name="confirmPassword"
+                  placeholder="Masukkan Konfirmasi Password Baru"
+                  type="password"
+                />
+              </div>
+              <p className="text-end"></p>
               <div className="mt-10 flex flex-col gap-4">
                 <Button
                   type="submit"
                   className="bg-primary w-full py-2 rounded text-white"
                 >
-                  Kirim Kode
+                  Masuk
                 </Button>
               </div>
             </form>
           </FormProvider>
         </div>
-        <div className="mt-10">
-          <p className="flex justify-center gap-2 text-secondary">
-            Ingat Password?
-            <Link to="/login" className="text-blue-500 font-bold">
-              Masuk
-            </Link>
-          </p>
-        </div>
+        <div className="text-center mt-10"></div>
       </div>
     </div>
   );
