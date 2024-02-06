@@ -10,12 +10,12 @@ export default function Button(props: IButtonProps) {
   const { children, className, isLoading, ...otherProps } = props;
   return (
     <_Button
+      {...otherProps}
       className={cn(
         "bg-primary hover:bg-primary/80 focus:!ring-1 focus:!ring-primary",
         className
       )}
       disabled={isLoading}
-      {...otherProps}
     >
       {!isLoading ? children : <LoadingSpinner />}
     </_Button>
