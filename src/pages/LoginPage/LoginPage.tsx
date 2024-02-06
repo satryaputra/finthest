@@ -60,7 +60,7 @@ export default function LoginPage() {
         >
           <div className="flex gap-2 font-semibold">
             <img src="/icons/google.svg" alt="ikon google" className="h-5" />
-            <p>Daftar dengan Google</p>
+            <p>Masuk dengan Google</p>
           </div>
         </SButton>
         <div className="flex justify-between items-center text-xs mt-2">
