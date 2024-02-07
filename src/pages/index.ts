@@ -1,7 +1,7 @@
-export { default as StartingPage } from "./StartingPage";
-export { default as ShowFeaturesPage } from "./ShowFeaturesPage";
+export { default as GetStartedPage } from "./GetStartedPage";
+export { default as FeaturesPage } from "./FeaturesPage";
 export { default as DashboardPage } from "./DashboardPage";
-export { default as ArticlePage } from "./ArticlePage";
+export { default as ArticlesPage } from "./ArticlesPage";
 export { default as SignupPage } from "./SignupPage";
 export { default as LoginPage } from "./LoginPage";
 export { default as ForgotPasswordPage } from "./ForgotPasswordPage";

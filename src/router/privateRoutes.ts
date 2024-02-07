@@ -1,6 +1,5 @@
 import { createElement } from "react";
 import { RouteObject } from "react-router-dom";
-import PrivateRouteMiddleware from "@/middlewares/PrivateRouteMiddleware";
 import { BottomNavBar } from "@/components/templates";
 import {
   DashboardPage,
@@ -8,28 +7,34 @@ import {
   StatisticPage,
   TermsConditionsPage,
 } from "@/pages";
+import { PrivateRouteMiddleware, GetStartedMiddleware } from "@/middlewares";
 
 const privateRoutes: RouteObject = {
-  element: createElement(PrivateRouteMiddleware),
+  element: createElement(GetStartedMiddleware),
   children: [
     {
-      path: "/terms-conditions",
-      element: createElement(TermsConditionsPage),
-    },
-    {
-      element: createElement(BottomNavBar),
+      element: createElement(PrivateRouteMiddleware),
       children: [
         {
-          path: "/",
-          element: createElement(DashboardPage),
+          path: "/terms-conditions",
+          element: createElement(TermsConditionsPage),
         },
         {
-          path: "/activities",
-          element: createElement(StatisticPage),
-        },
-        {
-          path: "/profile",
-          element: createElement(ProfilePage),
+          element: createElement(BottomNavBar),
+          children: [
+            {
+              path: "/",
+              element: createElement(DashboardPage),
+            },
+            {
+              path: "/activities",
+              element: createElement(StatisticPage),
+            },
+            {
+              path: "/profile",
+              element: createElement(ProfilePage),
+            },
+          ],
         },
       ],
     },

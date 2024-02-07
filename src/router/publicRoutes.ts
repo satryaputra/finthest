@@ -1,26 +1,26 @@
 import { createElement } from "react";
 import { RouteObject } from "react-router-dom";
 import {
-  ArticlePage,
+  ArticlesPage,
   ForgotPasswordPage,
   ResetPasswordPage,
-  ShowFeaturesPage,
-  StartingPage,
+  FeaturesPage,
+  GetStartedPage,
 } from "@/pages";
 
 const publicRoutes: RouteObject = {
   children: [
     {
       path: "/get-started",
-      element: createElement(StartingPage),
+      element: createElement(GetStartedPage),
     },
     {
-      path: "/what-features",
-      element: createElement(ShowFeaturesPage),
+      path: "/features",
+      element: createElement(FeaturesPage),
     },
     {
       path: "/articles",
-      element: createElement(ArticlePage),
+      element: createElement(ArticlesPage),
     },
     {
       path: "/forgot-password",

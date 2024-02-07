@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import bgShowFeatures from "/images/bg-show-features.png";
 
-export default function ShowFeaturesPage() {
+export default function FeaturesPage() {
   const navigate = useNavigate();
   const [isAnimating, setAnimating] = React.useState(false);
 
@@ -27,7 +27,7 @@ export default function ShowFeaturesPage() {
         className="w-full"
       />
       <h4>Fitur yang disediakan Finplan</h4>
-      <button onClick={handleSkipClick}>arrow bawah</button>
+      <button onClick={handleSkipClick}>arrow bawah (pencet ini ul)</button>
     </motion.div>
   );
 }

@@ -2,22 +2,9 @@ import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/molecules";
 import bgStarting from "/images/bg-starting.png";
-import privateApi from "@/api/config/privateApi";
-import { useQuery } from "@tanstack/react-query";
 
-export default function StartingPage() {
+export default function GetStartedPage() {
   const navigate = useNavigate();
-
-  const { data } = useQuery({
-    queryKey: ["test"],
-    queryFn: async () => {
-      const response = await privateApi.get("/users/test");
-      return response.data;
-    },
-    retry: 1,
-  });
-
-  console.log(data);
 
   return (
     <div>
@@ -30,10 +17,7 @@ export default function StartingPage() {
         <p className="text-secondary text-xl w-4/5">
           Sebelum mulai, baca artikel dari kami dulu yuk!
         </p>
-        <Button
-          className="group mt-4"
-          onClick={() => navigate("/what-features")}
-        >
+        <Button className="group mt-4" onClick={() => navigate("/features")}>
           Lanjut
           <ArrowRight
             size={30}
