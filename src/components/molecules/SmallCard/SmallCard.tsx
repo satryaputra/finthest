@@ -1,11 +1,11 @@
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
+} from "@/components/ui/carousel";
 import { Progress } from "@/components/ui/progress";
 export default function SmallCard() {
   return (
@@ -16,8 +16,8 @@ export default function SmallCard() {
       className="w-full max-w-sm"
     >
       <CarouselContent>
-        {Array.from({ length: 1 }).map((_, index) => (
-          <CarouselItem key={index} className="w-full">
+        {Array.from({ length: 2 }).map((_, index) => (
+          <CarouselItem key={index}>
             <div className="p-1">
               <Card className="w-full h-[7rem] rounded-3xl [background:linear-gradient(180deg,rgb(66.83,218.88,41.95)_0%,rgb(80.84,172.13,65.98)_100%)]">
                 <CardContent className="w-full h-full flex flex-col bg-[url('/src/assets/ImageCard.svg')]">
