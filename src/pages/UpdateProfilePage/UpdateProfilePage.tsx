@@ -1,10 +1,19 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import img1 from "../../assets/homePage.png";
+import React from 'react'
+import { Link, } from 'react-router-dom';
+import img1 from '../../assets/homePage.png'
 import { FormProvider, useForm } from "react-hook-form";
-import { Input } from "../../components/ui/input";
-import { Camera } from "lucide-react";
-import { IconCircleArrowLeftFilled } from "@tabler/icons-react";
+import { Button } from "../../components/molecules";
+import { Camera } from 'lucide-react';
+import { IconCircleArrowLeftFilled } from '@tabler/icons-react';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 // interface def {
 //   company: string,
 //   email: string,
@@ -100,7 +109,7 @@ export default function UpdateProfilePage() {
         </div>
 
         <div className="mt-20 mb-32 mx-3">
-          <FormProvider {...metodth}>
+          {/* <FormProvider {...metodth}>
             <form
             // onSubmit={handleSubmit}
             >
@@ -140,15 +149,29 @@ export default function UpdateProfilePage() {
                 />
               </div>
               <div className="mt-10 mb-10 flex flex-col gap-4">
-                <button
-                  type="submit"
-                  className="bg-primary w-full py-2 rounded-full text-white "
-                >
-                  Update Profile
-                </button>
               </div>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button className='text-white '>Edit Profile</Button>
+                </DialogTrigger>
+                <DialogContent className="w-4/5 h-48 rounded">
+                  <DialogHeader className='text-start'>
+                    <DialogTitle className='text-sm'>Apa anda yakin ingin update profile?</DialogTitle>
+                    <DialogDescription className='text-sm'>
+                      Dengan ini anda menyetujui untuk update profile
+                    </DialogDescription>
+                  </DialogHeader>
+                  <DialogFooter>
+                    <div className='flex justify-end items-end gap-4'>
+                      <Button type="submit" className='text-xs w-16 py-1 px-5 bg-white text-black border-slate-400'>Batal</Button>
+                      <Button type="submit" className='text-xs w-16 py-1'>Simpan</Button>
+                    </div>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+
             </form>
-          </FormProvider>
+          </FormProvider> */}
         </div>
       </div>
     </>
