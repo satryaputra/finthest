@@ -1,12 +1,28 @@
 import { Plus } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { Separator } from "@/components/ui/separator";
-import { CalculationCard, SmallCard } from "@/components/molecules";
+import {
+  Button,
+  CalculationCard,
+  FormField,
+  SmallCard,
+} from "@/components/molecules";
 import ProfilePicture from "../../assets/ProfilePicture.svg";
 import { useNavigate } from "react-router-dom";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { FormProvider, useForm } from "react-hook-form";
 
 export default function DashboardPage() {
   const navigate = useNavigate();
+
+  const methods = useForm();
 
   return (
     <div className="w-full flex flex-col px-7">
@@ -19,9 +35,45 @@ export default function DashboardPage() {
           <div className="flex flex-col px-5 mt-5">
             <div className="flex space-x-2 items-center">
               <p className="font-medium text-lg">Wish List</p>
-              <div className="bg-[#FFC145] rounded-full p-1 cursor-pointer">
-                <Plus size={12} />
-              </div>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <button className="bg-[#FFC145] rounded-full p-1 cursor-pointer">
+                    <Plus size={12} />
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="w-96 h-[26rem]">
+                  <DialogHeader className="">
+                    <DialogDescription className="text-lg">
+                      Anda bisa menambahkan wish list yang lain disini.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <div className="items-center">
+                    <FormProvider {...methods}>
+                      <form>
+                        <div className="w-full">
+                          <FormField
+                            name="judul"
+                            label="Judul"
+                            placeholder="Judul"
+                            className="text-sm "
+                          />
+                        </div>
+                        <FormField
+                          name="target"
+                          label="Target"
+                          placeholder="Target"
+                          className="text-sm "
+                        />
+                      </form>
+                    </FormProvider>
+                  </div>
+                  <DialogFooter>
+                    <div className="w-full grid ">
+                      <Button className="py-6 text-xl">Simpan</Button>
+                    </div>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
             </div>
             <div className="flex flex-col mt-5 px-8 items-center justify-center">
               <SmallCard />
