@@ -2,6 +2,7 @@ import { createElement } from "react";
 import { RouteObject } from "react-router-dom";
 import { BottomNavBar } from "@/components/templates";
 import {
+  AllCalculationPage,
   DashboardPage,
   ProfilePage,
   StatisticPage,
@@ -25,6 +26,10 @@ const privateRoutes: RouteObject = {
             {
               path: "/",
               element: createElement(DashboardPage),
+            },
+            {
+              path: "/all-calculation",
+              element: createElement(AllCalculationPage),
             },
             {
               path: "/activities",

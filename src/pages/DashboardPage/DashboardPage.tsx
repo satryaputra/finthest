@@ -124,9 +124,7 @@ export default function DashboardPage() {
                       </DialogDescription>
                       <div className="items-center">
                         <FormProvider {...methods}>
-                          <form
-                            onSubmit={methods.handleSubmit(onSubmitEdit)}
-                          >
+                          <form onSubmit={methods.handleSubmit(onSubmitEdit)}>
                             <div className="w-full">
                               <FormField
                                 name="uang"
@@ -178,7 +176,7 @@ export default function DashboardPage() {
           <p className="font-medium text-lg">Hasil Kalkulasi</p>
           <span
             className="font-medium text-sm text-[#408FFF] cursor-pointer"
-            onClick={() => navigate("/dashboard/all-calculation")}
+            onClick={() => navigate("/all-calculation")}
           >
             Lihat Semua
           </span>

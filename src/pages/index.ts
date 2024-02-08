@@ -9,7 +9,7 @@ export { default as ResetPasswordPage } from "./ResetPasswordPage";
 export { default as TermsConditionsPage } from "./TermsConditionsPage";
 export { default as QuestionPage } from "./QuestionPage";
 export { default as StatisticPage } from "./StatisticPage";
-export { default as SeeAllCalculationPage } from "./SeeAllCalculationPage";
+export { default as AllCalculationPage } from "./AllCalculationPage";
 export { default as ProfilePage } from "./ProfilePage";
 export { default as PemasukanPage } from "./PemasukanPage";
 export { default as UpdateProfilePage } from "./UpdateProfilePage";

@@ -1,4 +1,3 @@
-import { CreditCard, ShoppingCart, Wallet2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -6,6 +5,7 @@ import {
   CarouselItem,
   type CarouselApi,
 } from "@/components/ui/carousel";
+import { CardItem } from "@/lib/data";
 import React from "react";
 
 export default function CalculationCard() {
@@ -26,32 +26,7 @@ export default function CalculationCard() {
     });
   }, [api]);
 
-  const CardItem = [
-    {
-      header: "1jt",
-      title: "Untuk keperluan",
-      icon: <ShoppingCart size={45} className="text-[#F8964C]" />,
-      text: "Keperluan",
-    },
-    {
-      header: "700rb",
-      title: "Untuk di tabung",
-      icon: <Wallet2 size={30} className="text-[#22B04A]" />,
-      text: "Tabungan",
-    },
-    {
-      header: "200rb",
-      title: "Untuk hutang",
-      icon: <CreditCard size={30} className="text-[#F0B621]" />,
-      text: "Hutang",
-    },
-    {
-      header: "200rb",
-      title: "Untuk hutang",
-      icon: <CreditCard size={30} className="text-[#F0B621]" />,
-      text: "Hutang",
-    },
-  ];
+  
 
   return (
     <main className="flex flex-col">
@@ -77,7 +52,7 @@ export default function CalculationCard() {
                     <p className="font-normal text-sm text-[#AEAEAE]">
                       {item.title}
                     </p>
-                    <div className="flex flex-col mt-4 gap-4">
+                    <div className="flex flex-col mt-4 gap-4 ">
                       {item.icon}
                       <span className="font-normal text-lg sm:text-xl">
                         {item.text}

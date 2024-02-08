@@ -1,19 +1,19 @@
 import React from 'react'
 import { Link, } from 'react-router-dom';
 import img1 from '../../assets/homePage.png'
-import { FormProvider, useForm } from "react-hook-form";
-import { Button } from "../../components/molecules";
+// import {  useForm } from "react-hook-form";
+// import { Button } from "../../components/molecules";
 import { Camera } from 'lucide-react';
 import { IconCircleArrowLeftFilled } from '@tabler/icons-react';
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
+// import {
+//   Dialog,
+//   DialogContent,
+//   DialogDescription,
+//   DialogFooter,
+//   DialogHeader,
+//   DialogTitle,
+//   DialogTrigger,
+// } from "@/components/ui/dialog"
 // interface def {
 //   company: string,
 //   email: string,
@@ -23,7 +23,7 @@ import {
 // }
 
 export default function UpdateProfilePage() {
-  const metodth = useForm();
+  // const metodth = useForm();
 
   const [imagePreview, setImagePreview] = React.useState<string | null>(null);
 
@@ -48,12 +48,6 @@ export default function UpdateProfilePage() {
   // const handleGoBack = () => {
   //   navigate(-1);
   // };
-
-  const company = "UT";
-  const email = "ut@gmail.com";
-  const name = "ashif";
-  const ename = "annafi";
-  const contact = "09878888";
 
   return (
     <>
