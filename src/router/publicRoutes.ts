@@ -6,6 +6,7 @@ import {
   ResetPasswordPage,
   FeaturesPage,
   GetStartedPage,
+  SeeMoreArticle,
 } from "@/pages";
 
 const publicRoutes: RouteObject = {
@@ -19,8 +20,12 @@ const publicRoutes: RouteObject = {
       element: createElement(FeaturesPage),
     },
     {
-      path: "/articles",
+      path: "/article",
       element: createElement(ArticlesPage),
+    },
+    {
+      path: "/article/read",
+      element: createElement(SeeMoreArticle),
     },
     {
       path: "/forgot-password",

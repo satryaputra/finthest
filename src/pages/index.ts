@@ -1,12 +1,13 @@
 export { default as GetStartedPage } from "./GetStartedPage";
+export { default as TermsConditionsPage } from "./TermsConditionsPage";
 export { default as FeaturesPage } from "./FeaturesPage";
 export { default as DashboardPage } from "./DashboardPage";
 export { default as ArticlesPage } from "./ArticlesPage";
+export { default as SeeMoreArticle } from "./SeeMoreArticle";
 export { default as SignupPage } from "./SignupPage";
 export { default as LoginPage } from "./LoginPage";
 export { default as ForgotPasswordPage } from "./ForgotPasswordPage";
 export { default as ResetPasswordPage } from "./ResetPasswordPage";
-export { default as TermsConditionsPage } from "./TermsConditionsPage";
 export { default as QuestionPage } from "./QuestionPage";
 export { default as StatisticPage } from "./StatisticPage";
 export { default as AllCalculationPage } from "./AllCalculationPage";
