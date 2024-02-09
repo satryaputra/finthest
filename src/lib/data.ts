@@ -60,3 +60,18 @@ export const CardItem = [
     text: "Hutang",
   },
 ];
+
+export const DataArticle = [
+  {
+    name: "FinplanPRO",
+    title: "Financial Planner yang baik dapat mewujudkan...",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quodvero.",
+  },
+  {
+    name: "FinplanPRO",
+    title: "Financial Planner yang baik dapat mewujudkan...",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quodvero.",
+  },
+];
