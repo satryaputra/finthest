@@ -1,40 +1,18 @@
-import { Link } from "react-router-dom";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Link } from "react-router-dom";
 import { FormProvider, useForm } from "react-hook-form";
 import { FormField } from "@/components/molecules";
 import { Button } from "@/components/molecules";
 import { Button as SButton } from "@/components/ui/button";
 import { isObjectEmpty } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
+import { type SignupSchemaType, signupSchema } from "./signupSchema";
+
 import useSignup from "@/api/services/auth/useSignup";
 import img1 from "../../assets/imgAuth.png";
 
-const signupSchema = z
-  .object({
-    name: z
-      .string()
-      .min(1, "Nama tidak boleh kosong")
-      .min(3, "Nama harus memiliki 3 karakter"),
-    email: z
-      .string()
-      .min(1, "Email tidak boleh kosong")
-      .email("Alamat email tidak valid"),
-    password: z
-      .string()
-      .min(1, "Kata sandi tidak boleh kosong")
-      .min(8, "Kata sandi harus memiliki 8 karakter"),
-    confirmPassword: z
-      .string()
-      .min(1, "Konfirmasi kata sandi tidak boleh kosong"),
-  })
-  .refine((data) => data.confirmPassword === data.password, {
-    message: "Konfirmasi kata sandi tidak sesuai",
-    path: ["confirmPassword"],
-  });
-
 export default function SignupPage() {
-  const methods = useForm<z.infer<typeof signupSchema>>({
+  const methods = useForm<SignupSchemaType>({
     resolver: zodResolver(signupSchema),
     defaultValues: {
       name: "",
@@ -46,10 +24,7 @@ export default function SignupPage() {
 
   const signup = useSignup();
 
-  const onSubmit = async ({
-    confirmPassword,
-    ...data
-  }: z.infer<typeof signupSchema>) => {
+  const onSubmit = async ({ confirmPassword, ...data }: SignupSchemaType) => {
     await signup.mutateAsync(data);
   };
 
