@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import imgarticle from "../../assets/imgarticle.png";
 import { BackArrowIcon } from "@/components/atoms";
