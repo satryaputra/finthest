@@ -19,9 +19,11 @@ const PrivateRouteMiddleware: React.FC = () => {
     getMe.refetch();
   }
 
-  if (getMe.isSuccess) {
-    setUser(getMe.data);
-  }
+  React.useEffect(() => {
+    if (getMe.isSuccess) {
+      setUser(getMe.data);
+    }
+  }, [getMe.isSuccess]);
 
   if (getMe.isError) {
     resetAuth();

@@ -5,9 +5,11 @@ import { useNavigate } from "react-router-dom";
 export default function BackArrowIcon({
   size = 18,
   classname,
+  onClick,
 }: {
   size?: string | number | undefined;
   classname?: string;
+  onClick?: () => void;
 }) {
   const navigate = useNavigate();
   return (
@@ -16,9 +18,7 @@ export default function BackArrowIcon({
         "flex items-center justify-center p-1 bg-[#475569] rounded-full text-white cursor-pointer hover:ring-[5px] hover:ring-[#475569]/20 transition",
         classname
       )}
-      onClick={() => {
-        navigate(-1);
-      }}
+      onClick={onClick ?? (() => navigate(-1))}
     >
       <ChevronLeft size={size} />
     </div>

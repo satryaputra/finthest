@@ -1,31 +1,20 @@
-import { z } from "zod";
+import { Link, useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, FormProvider } from "react-hook-form";
-import { Input as _Input } from "@/components/ui/input";
-import { Link } from "react-router-dom";
 import { Button } from "@/components/molecules";
-import { Button as SButton } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { FormField } from "@/components/molecules";
-import { AlertCircle } from "lucide-react";
+import { Button as ButtonUI } from "@/components/ui/button";
 import { Alert, AlertTitle } from "@/components/ui/alert";
-
+import { AlertTriangle } from "lucide-react";
+import { loginSchema, type LoginSchemaType } from "./loginSchema";
 import useLogin from "@/api/services/auth/useLogin";
 import img1 from "../../assets/imgAuth.png";
 
-const loginSchema = z.object({
-  email: z
-    .string()
-    .min(1, "Email tidak boleh kosong")
-    .email("Alamat email tidak valid"),
-  password: z
-    .string()
-    .min(1, "Password tidak boleh kosong")
-    .min(8, "Password harus 8 karakter atau lebih"),
-});
-
 export default function LoginPage() {
-  const methods = useForm<z.infer<typeof loginSchema>>({
+  const navigate = useNavigate();
+
+  const methods = useForm<LoginSchemaType>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
       email: "",
@@ -35,7 +24,7 @@ export default function LoginPage() {
 
   const login = useLogin();
 
-  const onSubmit = async (data: z.infer<typeof loginSchema>) => {
+  const onSubmit = async (data: LoginSchemaType) => {
     await login.mutateAsync(data);
   };
 
@@ -53,7 +42,7 @@ export default function LoginPage() {
             Daftar
           </Link>
         </p>
-        <SButton
+        <ButtonUI
           asChild
           variant="outline"
           className="!border-2 !py-5 cursor-pointer mt-2"
@@ -62,7 +51,7 @@ export default function LoginPage() {
             <img src="/icons/google.svg" alt="ikon google" className="h-5" />
             <p>Masuk dengan Google</p>
           </div>
-        </SButton>
+        </ButtonUI>
         <div className="flex justify-between items-center text-xs mt-2">
           <Separator className="w-[45%]" />
           or
@@ -75,11 +64,27 @@ export default function LoginPage() {
           >
             <FormField name="email" label="Alamat Email" />
             <FormField name="password" type="password" label="Kata sandi" />
+            {/* Alert error dari backend */}
             {login.isError && (
-              <Alert variant="destructive" className="my-3 !py-[.8rem]">
-                <AlertCircle className="!top-1/2 h-4 w-4 !-translate-y-1/2 !absolute" />
-                <AlertTitle className="!mb-0">
-                  {(login.error as any)?.response?.data?.message}
+              <Alert variant="destructive" className="my-3 !py-3">
+                <AlertTriangle className="!top-1/2 h-4 w-4 !-translate-y-1/2 !absolute" />
+                <AlertTitle className="!mb-0 text-sm">
+                  {(login.error as any)?.response?.data?.message.includes(
+                    "belum terdaftar"
+                  ) ? (
+                    <p>
+                      {(login.error as any)?.response?.data?.message}
+                      {". "}
+                      <span
+                        className="hover:underline font-semibold cursor-pointer"
+                        onClick={() => navigate("/signup")}
+                      >
+                        Daftar
+                      </span>
+                    </p>
+                  ) : (
+                    (login.error as any)?.response?.data?.message
+                  )}
                 </AlertTitle>
               </Alert>
             )}
