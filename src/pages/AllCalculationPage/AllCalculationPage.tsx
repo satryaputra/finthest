@@ -4,9 +4,9 @@ import { CardItem } from "@/lib/data";
 
 export default function SeeAllCalculationPage() {
   return (
-    <div className="w-full flex flex-col ">
+    <div className="w-full flex flex-col relative">
       <div className="flex mt-10 items-center justify-center">
-        <BackArrowIcon classname="w-10" />
+        <BackArrowIcon size={20} classname="absolute left-10" />
         <h1 className="font-semibold text-2xl">Semua Kalkulasi</h1>
       </div>
       <div className="flex flex-wrap mt-10">

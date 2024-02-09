@@ -26,8 +26,6 @@ export default function CalculationCard() {
     });
   }, [api]);
 
-  
-
   return (
     <main className="flex flex-col">
       <Carousel
@@ -65,7 +63,7 @@ export default function CalculationCard() {
           ))}
         </CarouselContent>
       </Carousel>
-      <div className="py-2 text-center text-sm text-muted-foreground">
+      <div className="pt-2 text-center text-sm text-muted-foreground">
         {current} dari {count}
       </div>
     </main>
